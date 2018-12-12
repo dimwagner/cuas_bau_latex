@@ -1,0 +1,22 @@
+\section{Bilder}
+\label{sec:bilder}
+Normalerweise sind Bilder und Tabellen "`float"' Objekte, das heißt, dass Latex diese Objekte an den bestmöglichen Ort verschiebt. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=5cm]{example-image-b} 
+	\caption[Dies ist eine kürzere Bildunterschrift (Verzeichnis)]{Dies ist eine längere Bildunterschrift welche unter dem Bild angezeigt wird. Ist keine kurze Unterschrift angegeben so wird diese lange Bildunterschrift im Verzeichnis angezeigt.}
+	\label{fig:testbild}
+\end{figure}
+Will man dies nicht, so kann man mit der Option [H] (hier) das Bild an genau die Stelle im Text platzieren wo man es haben möchte. das bedingt natürlich dass der Platz unter Umständen nicht optimal genutzt wird.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/newton}
+	\caption{Newton entdeckt die Gravitation}
+	\label{fig:newton}
+\end{figure}
+
+Mit Latex bzw mit dem Paket TiKz und PGF lässt sich sogar zeichnen. Näheres dazu hier: \href{http://www.texample.net/tikz/examples/}{texample.net}. Es gibt auch die Möglichkeit Graphen und Plots in Latex zu erstellen:
+\input{bilder/funktionsplot}
+\input{bilder/scatterplot}
+\input{bilder/pi-chart}
+\clearpage
