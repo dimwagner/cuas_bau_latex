@@ -1,0 +1,50 @@
+% Diese Datei macht ein Inhaltsverzeichnis für den Anhang möglich
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{document/fh_kaernten_bibliography}[2017/11/18 FH-Kärnten Latex Style]
+
+\usepackage[
+backend         = biber,
+style           = alphabetic,
+]{biblatex}
+
+\renewcommand*{\labelalphaothers}{}
+
+\DeclareFieldFormat{extraalpha}{-#1}
+
+\DeclareLabelalphaTemplate{
+	\labelelement{
+		\field[final]{shorthand}
+		\field{label}
+		\field[strwidth=20,strside=left,names=1]{labelname}
+	}
+	\labelelement{
+		\literal{%
+			\string\printfield{extraalpha}%
+			\string\global\string\clearfield{extraalpha}%
+			,\nobreakspace}
+	}
+	\labelelement{
+		\field[strwidth=4,strside=right]{year}
+	}
+}
+
+\bibliography{Literaturverzeichnis}{}
+\addbibresource{Literaturverzeichnis.bib}
+
+  % Zitierung ohne eckige Klammern: Autor (Jahr) im Text: 
+  \DeclareCiteCommand{\citeauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexnames{labelname}}
+     {}%
+   \printtext[bibhyperref]{\printnames{labelname}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+  
+\def\citeplain#1{\citeauthor{#1} (\citeyear{#1})}
+
+\endinput
+
+ 

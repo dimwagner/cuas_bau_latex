@@ -1,0 +1,155 @@
+% Declare that this style file requires at least LaTeX version 2e.
+\NeedsTeXFormat{LaTeX2e}
+
+% Provide the name of your page, the date it was last updated, and a comment about what it's used for
+\ProvidesPackage{document/fh_kaernten_style}[2018/11/17 FH-Kärnten Latex Style]
+
+
+
+% Optionen
+
+\geometry{%
+	a4paper,
+	tmargin=30mm,
+	bmargin=40mm,
+	lmargin=25mm,
+	rmargin=20mm}
+
+
+\setheadsepline{0,5pt} %Dicke der Trennlinie Kopfzeile - Text
+\setfootsepline{0,5pt} %Dicke der Trennlinie Fusszeile - Text
+
+% Schriftart/größen
+\setmainfont{Verdana}% Schriftart Verdana
+\setkomafont{section}{\Large}% Schriftgröße für Hauptüberschriften (Sections)
+\setkomafont{subsection}{\normalsize}% Schriftgröße für Unterüberschriften (SubSections)
+\setkomafont{subsubsection}{\normalsize}% Schriftgröße für Unterüberschriften (SubSubSections)
+
+\addtokomafont{disposition}{\normalfont}
+\addtokomafont{caption}{\small}
+\renewcommand*{\headfont}{\footnotesize\normalfont} 
+
+% Eigene Befehle
+\providecommand{\keywordsDE}[1]{% Schlagwörter
+	\small
+	\textbf{\textit{Schlagwörter} ---} #1
+	\normalsize}
+\providecommand{\keywordsEN}[1]{% Keywords 
+	\small
+	\textbf{\textit{Keywords} ---} #1
+	\normalsize}
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\numberwithin{equation}{subsection}
+\addto\captionsngerman{%
+	\renewcommand{\figurename}{Abb.}% Abbildungsbezeichnung
+	\renewcommand{\tablename}{Tab.}}% Tabellenbezeichnung
+\captionsetup[figure]{width=12cm}% Breite der Bildunterschrift
+
+\renewcommand{\inhaltsverzeichnis}{% Inhaltsverzeichnis
+\startcontents[sections]
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Inhaltsverzeichnis}}
+{\Large Inhaltsverzeichnis}\\
+\begin{singlespace}
+	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{4}}
+\end{singlespace}
+\clearpage
+\pagenumbering{arabic}
+\automark[subsection]{section}
+\clearscrheadings% Bereinigung Kopfzeile
+\renewcommand*{\sectionmarkformat}{}% Subsection ohne Nummer
+\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
+\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \headmark }}}
+
+\renewcommand{\anhangtrenner}{% Anhang
+	\clearpage
+	\setheadsepline{0pt} %Dicke der Trennlinie Kopfzeile - Text
+	\setfootsepline{0pt} %Dicke der Trennlinie Fusszeile - Text
+	\clearscrheadfoot
+	\captionsetup{listof=false}
+	\null\vfill
+	\addcontentsline{toc}{paragraph}{Anhang}
+	\begin{center}
+		\sodef\spaceout{\bfseries\Huge\centering}{0pt plus 1fil}{.1em plus 1fil}{0pt}
+		\makebox[8cm][c]{\spaceout{ANHANG}} \\
+	\end{center}
+	\vfill\null
+	\clearpage
+	\setheadsepline{0,5pt} %Dicke der Trennlinie Kopfzeile - Text
+	\setfootsepline{0,5pt} %Dicke der Trennlinie Fusszeile - Text
+	\appendix
+	\startcontents[sections]
+	\renewcommand{\thepage}{A\arabic{page}}
+	\setcounter{page}{1}
+	\ohead[Anhang]{\parbox[t][5mm]{\textwidth}{\raggedleft Anhang --- Anhangsverzeichnis}}
+	\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
+	\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}
+	{\Large Anhangsverzeichnis}\\}
+
+\renewcommand{\abbildungsverzeichnis}{% Abbildungsverzeichnis
+\clearpage
+\phantomsection
+\addcontentsline{toc}{paragraph}{Abbildungsverzeichnis}
+\listoffigures
+\label{lastpage}
+}
+\renewcommand{\tabellenverzeichnis}{% Tabellenverzeichnis
+\clearpage
+\phantomsection
+\addcontentsline{toc}{paragraph}{Tabellenverzeichnis}
+\listoftables
+\label{lastpage}
+}
+
+\renewcommand{\anhangverzeichnis}{% Anhangverzeichnis
+\begin{singlespace}
+	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
+\end{singlespace}
+\clearpage
+\ohead[Anhang]{\parbox[t][5mm]{\textwidth}{\raggedleft Anhang --- \headmark}}}
+
+\newlength{\conditionwd}
+\renewenvironment{conditions}[1][mit:]{% Beschreibung für Formeln
+	#1\tabularx{\textwidth-\widthof{#1}}[t]{
+		>{$}l<{$} @{${}\coloneqq{}$} X@{}
+	}%
+}
+{\endtabularx\\[\belowdisplayskip]}
+
+\renewcommand{\literaturverzeichnis}{% Literaturverzeichnis
+\clearpage
+%\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Literaturverzeichnis}}
+\phantomsection
+\addcontentsline{toc}{paragraph}{Literaturverzeichnis}
+\label{sec:Literatur}
+\renewcommand*{\bibfont}{\footnotesize}
+\nocite{*}
+\printbibliography[title=Literaturverzeichnis]
+\clearpage}
+
+
+% Einstellung der Verzeichnisse (Inhalt und Anhang)
+\titlecontents{section}[\dimexpr  \tocindent+0.5em]{}
+{\contentslabel[{\thecontentslabel}]{\dimexpr  \tocindent+0.5em}}
+{}
+{\titlerule*[8pt]{.}\contentspage}
+\titlecontents{subsection}[\dimexpr  \tocindent+0.5em]{}
+{\contentslabel[{\thecontentslabel}]{\dimexpr  \tocindent+0.5em}}
+{}
+{\titlerule*[8pt]{.}\contentspage}
+\titlecontents{subsubsection}[\dimexpr  \tocindent+0.5em]{}
+{\contentslabel[{\thecontentslabel}]{\dimexpr  \tocindent+0.5em}}
+{}
+{\titlerule*[8pt]{.}\contentspage}
+
+\titlecontents{paragraph}[0pt]{}
+{\contentslabel[{\thecontentslabel}]{0pt}}
+{}
+{\titlerule*[8pt]{.}\contentspage}
+
+
+
+% Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
+\endinput

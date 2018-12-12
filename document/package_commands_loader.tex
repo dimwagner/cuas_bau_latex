@@ -1,0 +1,65 @@
+% Package- and Custom-Commands-Loader
+
+% Paketeinbindung
+\usepackage[english, ngerman]{babel}% Sprachpakete für Silbentrennung
+\let\latinencoding\relax
+
+\usepackage{fontspec}% Paket zur Einbindung von Schriftarten
+\usepackage[headsepline]{scrlayer-scrpage}% Paket für Kopf und Fußzeile
+\usepackage{geometry}
+\usepackage{titletoc}
+\usepackage{lipsum}
+
+% Grafiken
+\usepackage{transparent}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\usepackage{rotating}
+\usepackage{pgf-pie}
+
+\usepackage[%
+pdfencoding=auto,
+hidelinks,
+hyperfootnotes=false,]{hyperref}% Link-Paket für Kapitelverlinkung
+\usepackage{appendix}% Anhangpaket
+\usepackage{amsmath,amssymb,amstext}% Mathematische Symbolik
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{tabularx}% Für Tabellen bei denen die X-Umgebung gebraucht wird
+\usepackage{booktabs}% schönere Tabellen-Linien
+\usepackage{float}
+\usepackage{pdfpages}% Einbinden von PDF
+\usepackage[%
+format=hang, 
+labelsep=space, 
+labelsep=colon]{caption}% Anpassung der Unterschriften (Bilder/Tabellen)
+\usepackage{soul}% Hervorhebung von Text
+\usepackage{chemformula}% Für die chemische Formel
+\usepackage[onehalfspacing]{setspace}% Anderthalber Zeilenabstand  
+
+% Bibliotheken
+\usetikzlibrary{%
+	backgrounds,							% Hintergrund
+	calc,									% Berechnungen
+	positioning,							% relative Positionierungen
+	chains, 
+	shapes, 
+	trees, 
+	fadings, 
+	external,
+	intersections,
+	through,
+	decorations.pathmorphing,
+	arrows,
+}
+
+% Custom-Commands
+\newlength{\tocindent}
+\newcommand{\inhaltsverzeichnis}{}
+\newcommand{\anhangtrenner}{}
+\newcommand{\abbildungsverzeichnis}{}
+\newcommand{\tabellenverzeichnis}{}
+\newcommand{\anhangverzeichnis}{}
+\newcommand{\literaturverzeichnis}{}
+\newenvironment{conditions}{}{}
