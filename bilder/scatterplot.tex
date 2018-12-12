@@ -1,0 +1,54 @@
+\begin{figure}[H]
+	\centering
+\begin{minipage}[c]{0.45\linewidth}
+	\begin{tikzpicture}
+	\begin{axis}[
+	enlargelimits=true,
+	legend style
+	={
+		cells={anchor=east},
+		legend pos
+		=outer north east,
+	},
+	]
+	\addplot[color=red,only marks,mark size=2.9pt]
+	table[x index=0,y index=1] 
+	{data/scattered_example.dat};
+	\addlegendentry{ds1}
+	\addplot[color=blue,only marks,mark=square*,mark size=2.9pt]
+	table[x index=0,y index=2] 
+	{data/scattered_example.dat};
+	\addlegendentry{ds2}
+		\addplot[color=green,only marks,mark=triangle*,mark size=2.9pt]
+	table[x index=0,y index=3] 
+	{data/scattered_example.dat};
+	\addlegendentry{ds3}
+		\addplot[color=black,only marks,mark=x,mark size=2.9pt]
+	table[x index=0,y index=4] 
+	{data/scattered_example.dat};
+	\addlegendentry{ds4}
+	\end{axis}
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[c]{0.45\linewidth}\hspace{1.2cm}
+	\begin{tabular}{lllll}
+		base&ds1&ds2&ds3&ds4\\ \toprule
+		1&5,4&1&1,8&7,2\\
+		2&1,8&0,2&8,1&8\\
+		3&2,4&0,2&0,9&4,8\\
+		4&3,6&1,6&8,1&5,6\\
+		5&0,6&1&1,8&6,4\\
+		6&4,8&1,4&1,8&2,4\\
+		7&5,4&0,2&7,2&3,2\\
+		8&6&0,8&0,9&1,6\\
+		9&2,4&1&7,2&1,6\\
+		10&3,6&0,6&4,5&7,2\\
+		11&4,8&1&1,8&3,2\\
+		12&3&2&4,5&5,6\\
+		13&3&0,4&7,2&5,6\\
+		14&4,2&1,8&0,9&8\\
+		15&3&2&5,4&5,6
+	\end{tabular}
+\end{minipage}
+\caption{Scatterplot der Datentabelle im bezug zur Basis "`base"'}
+\end{figure}
