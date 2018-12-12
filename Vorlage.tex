@@ -1,0 +1,68 @@
+% !TeX program = xelatex
+\documentclass[10pt, twoside=false, parskip, overfullrule=false, fleqn=false]{scrartcl}
+
+% TODO: Metadaten; diese müssen angepasst werden um im Dokument verteilt werden zu können.
+\newcommand{\Student}{Vorname Nachname, BSc}
+\newcommand{\Matrikelnummer}{9999999999} 
+\newcommand{\Geburtstag}{00.00.1000} 
+\newcommand{\Wohnort}{0000 Ort} 
+\newcommand{\Strasse}{Straße Hausummer}
+\newcommand{\Projekttitel}{Titel der Arbeit}
+\newcommand{\Projektuntertitel}{Untertitel der Arbeit}
+\newcommand{\Studiengang}{Bauingenieurwesen}
+\newcommand{\Vertiefungsrichtung}{Entwurf und Konstruktion}
+\newcommand{\BetreuerA}{FH-Prof. Dr.-Ing. Vorname Name}
+\newcommand{\BetreuerB}{Dr.-Ing. Vorname Name}
+\newcommand{\BetreuerC}{~} 
+% Wenn der 3. Betreuer nicht nötig ist einfach ein geschütztes Leerzeichen (~) einfügen
+%***********************************************************
+
+\input{document/package_commands_loader}% Laden von Paketen und CustomCommands
+\usepackage{document/fh_kaernten_style}% Einbinden der Stildatei
+\usepackage{document/fh_kaernten_bibliography}% Stil Literaturverzeichnis
+
+\begin{document}
+	
+% TODO: Auswahl der Titelseite******************************
+\input{document/titelseite_pa}% Titelseite für die Projektarbeit
+%\input{document/titelseite_da}% Titelseite für die Diplomarbeit
+%***********************************************************
+% TODO: Anpassung der Arbeit(Diplomarbeit oder Projektarbeit)
+\input{document/eidesstattliche_erklaerung}
+%***********************************************************
+\input{document/gender_erklaerung}
+
+% TODO: Anpassung des Inhalts, Danksagung kann auch auskommentiert werden
+\input{inhalt/danksagung}
+\input{inhalt/kurzfassung}
+%***********************************************************
+
+% TODO: Anpassung der längsten Inhaltsnummerierung für Abstand
+\settowidth{\tocindent}{2.1.14}% Berechnung Breite der Nummerierung
+%***********************************************************
+
+\inhaltsverzeichnis
+
+% TODO: Erstellung von Text in Untergeordneten Dateine (am besten Kapitelweise)
+\input{inhalt/abkuerzungen}
+\input{inhalt/einleitung}
+\input{inhalt/beispiel_start}
+\input{inhalt/beispiel_formel}
+\input{inhalt/beispiel_bilder}
+\input{inhalt/beispiel_liste}
+\input{inhalt/beispiel_tabelle}
+\input{inhalt/zusammenfassung}
+%***********************************************************
+\abbildungsverzeichnis% Abbildungsverzeichnis
+\tabellenverzeichnis% Tabellenverzeichnis
+\literaturverzeichnis% Literaturverzeichnis
+\anhangtrenner% Trennseite für Anhang
+
+% TODO: Anpassung der längsten Anhangsnummerierung für Abstand
+\settowidth{\tocindent}{A.10}% Berechnung Breite der Nummerierung
+%***********************************************************
+\anhangverzeichnis% Anhangverzeichnis
+% TODO: Erstellen von Anhangkapiteln************************
+\input{inhalt/anhang}
+%***********************************************************
+\end{document}
