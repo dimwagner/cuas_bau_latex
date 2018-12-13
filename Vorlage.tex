@@ -1,5 +1,5 @@
 % !TeX program = xelatex
-\documentclass[10pt, twoside=false, parskip, overfullrule=false, fleqn=false, headsepline, footsepline]{scrartcl}
+\documentclass[10pt, headheight=30pt, footheight=30pt, twoside=false, parskip, overfullrule=false, headsepline, footsepline]{scrartcl}
 
 % TODO: Metadaten; diese müssen angepasst werden um im Dokument verteilt werden zu können.
 \newcommand{\Student}{Vorname Nachname, BSc}
@@ -16,7 +16,6 @@
 \newcommand{\BetreuerC}{~} 
 % Wenn der 3. Betreuer nicht nötig ist einfach ein geschütztes Leerzeichen (~) einfügen
 %***********************************************************
-
 \input{document/package_commands_loader}% Laden von Paketen und CustomCommands
 \usepackage{document/fh_kaernten_style}% Einbinden der Stildatei
 \usepackage{document/fh_kaernten_bibliography}% Stil Literaturverzeichnis
@@ -27,7 +26,6 @@
 \input{document/titelseite_pa}% Titelseite für die Projektarbeit
 %\input{document/titelseite_da}% Titelseite für die Diplomarbeit
 %***********************************************************
-% TODO: Anpassung der Arbeit(Diplomarbeit oder Projektarbeit)
 \input{document/eidesstattliche_erklaerung}
 %***********************************************************
 \input{document/gender_erklaerung}
@@ -56,6 +54,7 @@
 \abbildungsverzeichnis% Abbildungsverzeichnis
 \tabellenverzeichnis% Tabellenverzeichnis
 \literaturverzeichnis% Literaturverzeichnis
+\label{lastpage}
 \anhangtrenner% Trennseite für Anhang
 
 % TODO: Anpassung der längsten Anhangsnummerierung für Abstand

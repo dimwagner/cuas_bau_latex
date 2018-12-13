@@ -60,8 +60,8 @@
 
 \renewcommand{\anhangtrenner}{% Anhang
 	\clearpage
-	\setheadsepline{0pt} %Dicke der Trennlinie Kopfzeile - Text
-	\setfootsepline{0pt} %Dicke der Trennlinie Fusszeile - Text
+	\KOMAoptions{headsepline=false}% Trennlinie Kopfzeile - Aus
+	\KOMAoptions{footsepline=false}% Trennlinie Fußzeile - Aus
 	\clearscrheadfoot
 	\captionsetup{listof=false}
 	\null\vfill
@@ -72,8 +72,8 @@
 	\end{center}
 	\vfill\null
 	\clearpage
-	\setheadsepline{0,5pt} %Dicke der Trennlinie Kopfzeile - Text
-	\setfootsepline{0,5pt} %Dicke der Trennlinie Fusszeile - Text
+	\KOMAoptions{headsepline=false}% Trennlinie Kopfzeile - An
+	\KOMAoptions{footsepline=false}% Trennlinie Fußzeile - An
 	\appendix
 	\startcontents[sections]
 	\renewcommand{\thepage}{A\arabic{page}}
@@ -88,14 +88,12 @@
 \phantomsection
 \addcontentsline{toc}{paragraph}{Abbildungsverzeichnis}
 \listoffigures
-\label{lastpage}
 }
 \renewcommand{\tabellenverzeichnis}{% Tabellenverzeichnis
 \clearpage
 \phantomsection
 \addcontentsline{toc}{paragraph}{Tabellenverzeichnis}
 \listoftables
-\label{lastpage}
 }
 
 \renewcommand{\anhangverzeichnis}{% Anhangverzeichnis

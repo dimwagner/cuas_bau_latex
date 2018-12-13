@@ -3,7 +3,7 @@
 % Paketeinbindung
 \usepackage[english, ngerman]{babel}% Sprachpakete für Silbentrennung
 \let\latinencoding\relax
-
+\usepackage{csquotes}
 \usepackage{fontspec}% Paket zur Einbindung von Schriftarten
 \usepackage[headsepline]{scrlayer-scrpage}% Paket für Kopf und Fußzeile
 \usepackage{geometry}
@@ -15,9 +15,9 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{rotating}
-\usepackage{document/pgfpie}
+% \usepackage{pgf-pie} % Für Die erstellung von Tortendiagrammen, Kompatibilitätsproblem auf Overleaf
 
-
+\usepackage{calc}
 \usepackage{subfiles}
 \usepackage[pdfencoding=auto,hidelinks,]{hyperref}% Link-Paket für Kapitelverlinkung
 \usepackage{appendix}% Anhangpaket
@@ -64,3 +64,4 @@ labelsep=colon]{caption}% Anpassung der Unterschriften (Bilder/Tabellen)
 \newcommand{\isincluded}{}
 \newcommand{\arbeit}{}
 \newenvironment{conditions}{}{}
+\renewcommand{\arbeit}{}
