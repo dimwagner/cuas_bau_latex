@@ -7,8 +7,8 @@
 \newcommand{\Geburtstag}{00.00.1000} 
 \newcommand{\Wohnort}{0000 Ort} 
 \newcommand{\Strasse}{Straße Hausummer}
-\newcommand{\Projekttitel}{Berechnung und Darstellung von Hauptspannungstrajektorien }
-\newcommand{\Projektuntertitel}{und deren Spannungsgrößen mittels Matlab}
+\newcommand{\Projekttitel}{Titel der Arbeit}
+\newcommand{\Projektuntertitel}{Untertitel der Arbeit}
 \newcommand{\Studiengang}{Bauingenieurwesen}
 \newcommand{\Vertiefungsrichtung}{Entwurf und Konstruktion}
 \newcommand{\BetreuerA}{FH-Prof. Dr.-Ing. Vorname Name}
@@ -26,9 +26,13 @@
 \input{document/titelseite_pa}% Titelseite für die Projektarbeit
 %\input{document/titelseite_da}% Titelseite für die Diplomarbeit
 %***********************************************************
+
 \input{document/eidesstattliche_erklaerung}
+
+% TODO: Anpassung des Inhalts oder auskommentieren
 \input{document/sperrvermerk}
 %***********************************************************
+
 \input{document/gender_erklaerung}
 
 % TODO: Anpassung des Inhalts, Danksagung kann auch auskommentiert werden
@@ -56,14 +60,16 @@
 \abbildungsverzeichnis% Abbildungsverzeichnis
 \tabellenverzeichnis% Tabellenverzeichnis
 \literaturverzeichnis% Literaturverzeichnis
-\label{lastpage}
+\label{lastpage}% letzte Seite des Inhalts
 \anhangtrenner% Trennseite für Anhang
 
 % TODO: Anpassung der längsten Anhangsnummerierung für Abstand
 \settowidth{\tocindent}{A.10}% Berechnung Breite der Nummerierung
 %***********************************************************
+
 \anhangverzeichnis% Anhangverzeichnis
-% TODO: Erstellen von Anhangkapiteln************************
+
+% TODO: Erstellen von Anhangkapiteln
 \input{inhalt/anhang}
 %***********************************************************
 \end{document}
