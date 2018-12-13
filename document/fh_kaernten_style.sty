@@ -54,7 +54,7 @@ overfullrule=false,
 \renewcommand{\inhaltsverzeichnis}{% Inhaltsverzeichnis
 \startcontents[sections]
 \ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Inhaltsverzeichnis}}
-{\Large Inhaltsverzeichnis}\\
+\section*{Inhaltsverzeichnis}
 \begin{singlespace}
 	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{4}}
 \end{singlespace}
@@ -74,23 +74,23 @@ overfullrule=false,
 	\clearscrheadfoot
 	\captionsetup{listof=false}
 	\null\vfill
-	\addcontentsline{toc}{section}{Anhang}
 	\begin{center}
 		\sodef\spaceout{\bfseries\Huge\centering}{0pt plus 1fil}{.1em plus 1fil}{0pt}
 		\makebox[8cm][c]{\spaceout{ANHANG}} \\
 	\end{center}
 	\vfill\null
 	\clearpage
-	\KOMAoptions{headsepline=false}% Trennlinie Kopfzeile - An
-	\KOMAoptions{footsepline=false}% Trennlinie Fußzeile - An
+	\phantomsection
+	\addcontentsline{toc}{section}{Anhang}
+	\KOMAoptions{headsepline=true}% Trennlinie Kopfzeile - An
+	\KOMAoptions{footsepline=true}% Trennlinie Fußzeile - An
 	\appendix
 	\startcontents[sections]
 	\renewcommand{\thepage}{A\arabic{page}}
 	\setcounter{page}{1}
 	\ohead[Anhang]{\parbox[t][5mm]{\textwidth}{\raggedleft Anhang --- Anhangsverzeichnis}}
 	\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
-	\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}
-	{\Large Anhangsverzeichnis}\\}
+	\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}}
 
 \renewcommand{\abbildungsverzeichnis}{% Abbildungsverzeichnis
 \clearpage
@@ -106,6 +106,7 @@ overfullrule=false,
 }
 
 \renewcommand{\anhangverzeichnis}{% Anhangverzeichnis
+\section*{Anhangsverzeichnis}
 \begin{singlespace}
 	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
 \end{singlespace}
