@@ -7,14 +7,12 @@
 
 
 % Optionen
-
-\geometry{%
+\geometry{% Einstellungen Papiergröße
 	a4paper,
 	tmargin=30mm,
 	bmargin=40mm,
 	lmargin=25mm,
 	rmargin=20mm}
-
 
 \setheadsepline{0,5pt} %Dicke der Trennlinie Kopfzeile - Text
 \setfootsepline{0,5pt} %Dicke der Trennlinie Fusszeile - Text
@@ -39,9 +37,9 @@
 	\textbf{\textit{Keywords} ---} #1
 	\normalsize}
 
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{subsection}
+\numberwithin{figure}{section} % Numerierung von Bildern innerhalb Sections
+\numberwithin{table}{section} % Numerierung von Tabellen innerhalb Sections
+\numberwithin{equation}{subsection} % Numerierung von Formeln innerhalb Sections
 \addto\captionsngerman{%
 	\renewcommand{\figurename}{Abb.}% Abbildungsbezeichnung
 	\renewcommand{\tablename}{Tab.}}% Tabellenbezeichnung
