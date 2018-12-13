@@ -11,17 +11,15 @@
 \usepackage{lipsum}
 
 % Grafiken
-\usepackage{transparent}
+% \usepackage{transparent}
 \usepackage{tikz}
-\usetikzlibrary{arrows}
 \usepackage{pgfplots}
 \usepackage{rotating}
 \usepackage{document/pgfpie}
 
-\usepackage[%
-pdfencoding=auto,
-hidelinks,
-hyperfootnotes=false,]{hyperref}% Link-Paket für Kapitelverlinkung
+
+\usepackage{subfiles}
+\usepackage[pdfencoding=auto,hidelinks,]{hyperref}% Link-Paket für Kapitelverlinkung
 \usepackage{appendix}% Anhangpaket
 \usepackage{amsmath,amssymb,amstext}% Mathematische Symbolik
 \usepackage{mathtools}
@@ -53,6 +51,7 @@ labelsep=colon]{caption}% Anpassung der Unterschriften (Bilder/Tabellen)
 	decorations.pathmorphing,
 	arrows,
 }
+\pgfplotsset{compat=1.15}
 
 % Custom-Commands
 \newlength{\tocindent}
@@ -62,4 +61,6 @@ labelsep=colon]{caption}% Anpassung der Unterschriften (Bilder/Tabellen)
 \newcommand{\tabellenverzeichnis}{}
 \newcommand{\anhangverzeichnis}{}
 \newcommand{\literaturverzeichnis}{}
+\newcommand{\isincluded}{}
+\newcommand{\arbeit}{}
 \newenvironment{conditions}{}{}
