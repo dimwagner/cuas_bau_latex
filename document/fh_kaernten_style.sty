@@ -134,21 +134,18 @@ overfullrule=false,
 
 
 % Einstellung der Verzeichnisse (Inhalt und Anhang)
-\titlecontents{section}[\dimexpr  \tocindent+0.5em]{}
-{\contentslabel[{\thecontentslabel}]{\dimexpr  \tocindent+0.5em}}
-{}
+\titlecontents{section}[\dimexpr \tocindent+0.5em]{}
+{\contentslabel[{\thecontentslabel}]{\dimexpr \tocindent+0.5em}}
+{\hspace*{-\dimexpr \tocindent+0.5em}}
 {\titlerule*[8pt]{.}\contentspage}
-\titlecontents{subsection}[\dimexpr  \tocindent+0.5em]{}
-{\contentslabel[{\thecontentslabel}]{\dimexpr  \tocindent+0.5em}}
-{}
-{\titlerule*[8pt]{.}\contentspage}
-\titlecontents{subsubsection}[\dimexpr  \tocindent+0.5em]{}
-{\contentslabel[{\thecontentslabel}]{\dimexpr  \tocindent+0.5em}}
+
+\titlecontents{subsection}[\dimexpr \tocindent+0.5em]{}
+{\contentslabel[{\thecontentslabel}]{\dimexpr \tocindent+0.5em}}
 {}
 {\titlerule*[8pt]{.}\contentspage}
 
-\titlecontents{paragraph}[0pt]{}
-{\contentslabel[{\thecontentslabel}]{0pt}}
+\titlecontents{subsubsection}[\dimexpr \tocindent+0.5em]{}
+{\contentslabel[{\thecontentslabel}]{\dimexpr \tocindent+0.5em}}
 {}
 {\titlerule*[8pt]{.}\contentspage}
 

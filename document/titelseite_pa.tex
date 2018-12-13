@@ -7,7 +7,7 @@
 \footnotesize
 \sodef\myspace{}{.12em}{.5em plus .2em}{2em plus.1em minus.1em}
 	\makebox[5.4cm][l]{\myspace{FACHHOCHSCHULE K\"ARNTEN}} \\
-\vspace{0.1cm}	
+\vspace{0.1cm}
 Villacher Straße 1\\
 A-9800 Spittal an der Drau\\
 
@@ -15,11 +15,11 @@ A-9800 Spittal an der Drau\\
 \raggedleft
 \hfill
 \begin{minipage}{0.45\textwidth}
-\raggedleft	
+\raggedleft
 %\includegraphics[width=4cm]{bilder/fhkaernten}
 	\input{document/Logo_FH_Kaernten}
 \end{minipage}
-\vspace{0.1cm}\\	
+\vspace{0.1cm}\\
 \raggedright
 \begin{minipage}{0.65\textwidth}
 \sffamily
@@ -32,12 +32,12 @@ A-9800 Spittal an der Drau\\
 
 \vspace{2,95cm}
 %\definecolor{titel}{cmyk}{.68,.39,0,0}
-%\color{titel} 
+%\color{titel}
 
 \centering
 	\sodef\spaceout{\bfseries\Huge\centering}{0pt plus 1fil}{.4em plus 1fil}{0pt}
 	\makebox[15,65cm][l]{\spaceout{PROJEKTARBEIT}} \\
-%\color{black} 	
+%\color{black}
 	\vspace{0,53cm}
 	{\huge\bfseries \Projekttitel\\}
 	\vspace{0,9cm}
@@ -69,11 +69,11 @@ A-9800 Spittal an der Drau\\
 	\sffamily
 	\raggedright
 	\Student \\
-	\vspace{\baselineskip} 
+	\vspace{\baselineskip}
 	\Matrikelnummer\\
 	\vspace{\baselineskip}
 	\BetreuerA \\
-	\vspace{\baselineskip}	
+	\vspace{\baselineskip}
 	\BetreuerB \\
 	\vspace{\baselineskip}
 	\BetreuerC \\
@@ -102,6 +102,8 @@ A-9800 Spittal an der Drau\\
 \pagebreak[4]
 \restoregeometry
 \clearscrheadings% Bereinigung Kopfzeile
-\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
-\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}
+\ifoot[\Student]{\raisebox{-3pt}{\Student}}
+%\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
+\ofoot[\pagemark]{\raisebox{-3pt}{\pagemark}}
+%\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}
 \renewcommand{\arbeit}{PROJEKTARBEIT }
