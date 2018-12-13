@@ -4,7 +4,16 @@
 % Provide the name of your page, the date it was last updated, and a comment about what it's used for
 \ProvidesPackage{document/fh_kaernten_style}[2018/11/17 FH-Kärnten Latex Style]
 
-
+% Dokumentoptionen
+\KOMAoptions{% 
+headheight=30pt, 
+footheight=30pt, 
+headsepline, 
+footsepline,
+twoside=false, 
+parskip, 
+overfullrule=false, 
+}
 
 % Optionen
 \geometry{% Einstellungen Papiergröße
@@ -65,7 +74,7 @@
 	\clearscrheadfoot
 	\captionsetup{listof=false}
 	\null\vfill
-	\addcontentsline{toc}{paragraph}{Anhang}
+	\addcontentsline{toc}{section}{Anhang}
 	\begin{center}
 		\sodef\spaceout{\bfseries\Huge\centering}{0pt plus 1fil}{.1em plus 1fil}{0pt}
 		\makebox[8cm][c]{\spaceout{ANHANG}} \\
@@ -86,13 +95,13 @@
 \renewcommand{\abbildungsverzeichnis}{% Abbildungsverzeichnis
 \clearpage
 \phantomsection
-\addcontentsline{toc}{paragraph}{Abbildungsverzeichnis}
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
 }
 \renewcommand{\tabellenverzeichnis}{% Tabellenverzeichnis
 \clearpage
 \phantomsection
-\addcontentsline{toc}{paragraph}{Tabellenverzeichnis}
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
 }
 
@@ -115,7 +124,7 @@
 \clearpage
 %\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Literaturverzeichnis}}
 \phantomsection
-\addcontentsline{toc}{paragraph}{Literaturverzeichnis}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
 \label{sec:Literatur}
 \renewcommand*{\bibfont}{\footnotesize}
 \nocite{*}
