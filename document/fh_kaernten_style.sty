@@ -43,21 +43,85 @@ overfullrule=false,
 	\textbf{\textit{Keywords} ---} #1
 	\normalsize}
 
+\makeatletter
+     \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+	 \let\l@table\l@figure
+\makeatother
+	
+	
 \numberwithin{figure}{section} % Numerierung von Bildern innerhalb Sections
 \numberwithin{table}{section} % Numerierung von Tabellen innerhalb Sections
-\numberwithin{equation}{subsection} % Numerierung von Formeln innerhalb Sections
+\numberwithin{equation}{subsection} % Numerierung von Formeln innerhalb SubSections
 \addto\captionsngerman{%
-	\renewcommand{\figurename}{Abb.}% Abbildungsbezeichnung
-	\renewcommand{\tablename}{Tab.}}% Tabellenbezeichnung
+	\renewcommand{\figurename}{Abb. }% Abbildungsbezeichnung
+	\renewcommand{\tablename}{Tab. }}% Tabellenbezeichnung
 \captionsetup[figure]{width=12cm}% Breite der Bildunterschrift
 
-\renewcommand{\inhaltsverzeichnis}{% Inhaltsverzeichnis
+%Inhaltsverzeichnis einbinden
+\renewcommand{\inhaltsverzeichnis}{%
 \startcontents[sections]
+% Indentation Inhaltsverzeichnis
+\renewcommand\thesection{\eqmakebox[TOCS][l]{\arabic{section}}}
+\renewcommand\thesubsection{\arabic{section}.\eqmakebox[TOCSS][l]{\arabic{subsection}}}
+\renewcommand\thesubsubsection{\arabic{section}.\arabic{subsection}.\eqmakebox[TOCSSS][l]{\arabic{subsubsection}}}
+
+\titlecontents{section}[%
+	\dimexpr 
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent]{}
+{\contentslabel[{\thecontentslabel}]{%
+	\dimexpr
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent}}
+{\hspace*{%
+	-\dimexpr 
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent}}
+{\titlerule*[8pt]{.}\contentspage}
+
+\titlecontents{subsection}[%
+	\dimexpr 
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent]{}
+{\contentslabel[{\thecontentslabel}]{%
+	\dimexpr
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent}}
+{\hspace*{%
+	-\dimexpr 
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent}}
+{\titlerule*[8pt]{.}\contentspage}
+
+\titlecontents{subsubsection}[%
+	\dimexpr 
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent]{}
+{\contentslabel[{\thecontentslabel}]{%
+	\dimexpr
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent}}
+{\hspace*{%
+	-\dimexpr 
+	\eqboxwidth{TOCS}+
+	\eqboxwidth{TOCSS}+
+	\eqboxwidth{TOCSSS}+\tocindent}}
+{\titlerule*[8pt]{.}\contentspage}
+
 \ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Inhaltsverzeichnis}}
 \section*{Inhaltsverzeichnis}
 \begin{singlespace}
-	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{4}}
+	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
 \end{singlespace}
+
 \clearpage
 \pagenumbering{arabic}
 \automark[subsection]{section}
@@ -92,27 +156,75 @@ overfullrule=false,
 	\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
 	\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}}
 
-\renewcommand{\abbildungsverzeichnis}{% Abbildungsverzeichnis
+	
+% Abbildungsverzeichnis einbinden	
+\renewcommand{\abbildungsverzeichnis}{% 
 \clearpage
 \phantomsection
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
 }
-\renewcommand{\tabellenverzeichnis}{% Tabellenverzeichnis
+
+% Tbellenverzeichnis einbinden
+\renewcommand{\tabellenverzeichnis}{%
 \clearpage
 \phantomsection
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
 }
 
-\renewcommand{\anhangverzeichnis}{% Anhangverzeichnis
+% Anhangsverzeichnis einbinden
+\renewcommand{\anhangverzeichnis}{%
 \section*{Anhangsverzeichnis}
+
+\renewcommand\thesection{\eqmakebox[TOAS][l]{\Alph{section}}}
+\renewcommand\thesubsection{\Alph{section}.\eqmakebox[TOASS][l]{\arabic{subsection}}}
+\renewcommand\thesubsubsection{\Alph{section}.\arabic{subsection}.\eqmakebox[TOASSS][l]{\arabic{subsubsection}}}
+
+\titlecontents{section}[%
+	\dimexpr 
+	\eqboxwidth{TOAS}+
+	\eqboxwidth{TOASS}+
+	\eqboxwidth{TOASSS}+\tocindent]{}
+{\contentslabel[{\thecontentslabel}]{%
+	\dimexpr
+	\eqboxwidth{TOAS}+
+	\eqboxwidth{TOASS}+
+	\eqboxwidth{TOASSS}+\tocindent}}
+{\hspace*{%
+	-\dimexpr 
+	\eqboxwidth{TOAS}+
+	\eqboxwidth{TOASS}+
+	\eqboxwidth{TOASSS}+\tocindent}}
+{\titlerule*[8pt]{.}\contentspage}
+
+\titlecontents{subsection}[%
+	\dimexpr 
+	\eqboxwidth{TOAS}+
+	\eqboxwidth{TOASS}+
+	\eqboxwidth{TOASSS}+\tocindent]{}
+{\contentslabel[{\thecontentslabel}]{%
+	\dimexpr
+	\eqboxwidth{TOAS}+
+	\eqboxwidth{TOASS}+
+	\eqboxwidth{TOASSS}+\tocindent}}
+{\hspace*{%
+	-\dimexpr 
+	\eqboxwidth{TOAS}+
+	\eqboxwidth{TOASS}+
+	\eqboxwidth{TOASSS}+\tocindent}}
+{\titlerule*[8pt]{.}\contentspage}
+
+
 \begin{singlespace}
 	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
 \end{singlespace}
 \clearpage
 \ohead[Anhang]{\parbox[t][5mm]{\textwidth}{\raggedleft Anhang --- \headmark}}}
 
+
+
+% Formelbeschreibungen
 \newlength{\conditionwd}
 \renewenvironment{conditions}[1][mit:]{% Beschreibung für Formeln
 	#1\tabularx{\textwidth-\widthof{#1}}[t]{
@@ -133,21 +245,11 @@ overfullrule=false,
 \clearpage}
 
 
-% Einstellung der Verzeichnisse (Inhalt und Anhang)
-\titlecontents{section}[\dimexpr \tocindent+0.5em]{}
-{\contentslabel[{\thecontentslabel}]{\dimexpr \tocindent+0.5em}}
-{\hspace*{-\dimexpr \tocindent+0.5em}}
-{\titlerule*[8pt]{.}\contentspage}
+% Einstellung der Verzeichnisse (Inhalt)
+\setlength{\tocindent}{1em}% calculation of the indentation
 
-\titlecontents{subsection}[\dimexpr \tocindent+0.5em]{}
-{\contentslabel[{\thecontentslabel}]{\dimexpr \tocindent+0.5em}}
-{}
-{\titlerule*[8pt]{.}\contentspage}
 
-\titlecontents{subsubsection}[\dimexpr \tocindent+0.5em]{}
-{\contentslabel[{\thecontentslabel}]{\dimexpr \tocindent+0.5em}}
-{}
-{\titlerule*[8pt]{.}\contentspage}
+
 
 
 

@@ -1,0 +1,17 @@
+\section{Kapitel der ersten Ebene}
+Kapitelüberschriften werden mit \texttt{\textbackslash section\{Titel\}} erzeugt. Die Unterkapitel mit der Erweiterung des Befehls \texttt{sub} zu \texttt{\textbackslash subsection\{Titel\}} bzw. \texttt{\textbackslash subsubsection\{Titel\}} eine tiefere Gliederung erfordert eine manuelle Erstellung des entsprechenden Befehls und ist als nicht sinnvoll zu erachten, da Dokumente sonst unübersichtlich werden. Es gibt hier allerdings noch die Möglichkeit des Paragraphen. Die Nummerierung der Kapitel erfolgt automatisch.
+\subsection{Kapitel der zweiten Ebene}
+Der Text beginnt ganz normal hier. Die Nummerierung des Kapitels erfolgt automatisch.
+\subsubsection{Kapitel der dritten Ebene}
+Der Text beginnt ganz normal hier. Die Nummerierung des Kapitels erfolgt automatisch.
+\paragraph{Paragraph}
+Ein Paragraph erscheint nicht im Inhaltsverzeichnis. der Text wird an den Titel des Paragraphen angehängt.
+
+\section*{Kapitel der ersten Ebene (nicht im Inhaltsverzeichnis)}
+Der Text beginnt ganz normal hier. Die Nummerierung des Kapitels erfolgt \textbf{nicht} und sie erscheinen weder im Inhaltsverzeichnis noch in der Kopfzeile. In diesem Fall ist allerdings manuell eine Eintragung ins Inhaltsverzeichnis erfolgt. 
+
+Diese Eintragung mit \texttt{\textbackslash addcontentsline\{toc\}\{section\}\{Ein Kapitel ohne Nummerierung\}} ist im Fließtext nicht sichtbar.
+\addcontentsline{toc}{section}{Ein Kapitel ohne Nummerierung}
+
+Der hier verwendete Code \texttt{\textbackslash section\textbf{*}\{Titel\}} ist analog auch für \texttt{subsection} und \texttt{subsubsection} anwendbar
+\clearpage
