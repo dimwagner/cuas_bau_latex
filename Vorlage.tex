@@ -14,8 +14,9 @@
 \newcommand{\BetreuerA}{FH-Prof. Dr.-Ing. Vorname Name}
 \newcommand{\BetreuerB}{Dr.-Ing. Vorname Name}
 \newcommand{\BetreuerC}{~} 
-% Wenn der 3. Betreuer nicht nötig ist einfach ein geschütztes Leerzeichen (~) einfügen
+% Wenn Ein feld nicht benötigt wird, einfach ein geschütztes Leerzeichen, eine Tilde (~) einfügen
 %***********************************************************
+
 \input{document/package_commands_loader}% Laden von Paketen und CustomCommands
 \usepackage{document/fh_kaernten_style}% Einbinden der Stildatei
 \usepackage{document/fh_kaernten_bibliography}% Stil Literaturverzeichnis
@@ -23,6 +24,7 @@
 \begin{document}
 	
 % TODO: Auswahl der Titelseite******************************
+% Die Art der Arbeit in den diversen Seiten (z.B. Eidesstattliche Erklärung) wird automatisch angepasst
 \input{document/titelseite_pa}% Titelseite für die Projektarbeit
 %\input{document/titelseite_da}% Titelseite für die Diplomarbeit
 %***********************************************************
@@ -30,14 +32,15 @@
 \input{document/eidesstattliche_erklaerung}
 
 % TODO: Anpassung des Inhalts oder auskommentieren
-\input{document/sperrvermerk}
+\input{document/sperrvermerk}% kann auskommentiert werden.
 %***********************************************************
 
-\input{document/gender_erklaerung}
+\input{document/gender_erklaerung}% kann auskommentiert werden.
 
 % TODO: Anpassung des Inhalts, Danksagung kann auch auskommentiert werden
-\input{inhalt/danksagung}
+\input{inhalt/danksagung}% kann auskommentiert werden.
 \input{inhalt/kurzfassung}
+\input{inhalt/abkuerzungen}% kann auskommentiert werden.
 %***********************************************************
 % TODO: Anpassung der längsten Inhaltsnummerierung für Abstand
 \settowidth{\tocindent}{0.0.0}% Berechnung Breite der Nummerierung
@@ -45,7 +48,6 @@
 \inhaltsverzeichnis
 
 % TODO: Erstellung von Text in Untergeordneten Dateine (am besten Kapitelweise)
-\input{inhalt/abkuerzungen}
 \input{inhalt/einleitung}
 \input{inhalt/beispiel_start}
 \input{inhalt/beispiel_kapitel}
@@ -59,7 +61,11 @@
 \abbildungsverzeichnis% Abbildungsverzeichnis
 \tabellenverzeichnis% Tabellenverzeichnis
 \literaturverzeichnis% Literaturverzeichnis
-\input{inhalt/normenverzeichnis}
+
+% TODO: Anpassung des Inhalts oder auskommentieren
+\input{inhalt/normenverzeichnis}% kann auskommentiert werden.
+%***********************************************************
+
 \label{lastpage}% letzte Seite des Inhalts
 \anhangtrenner% Trennseite für Anhang
 \anhangverzeichnis% Anhangverzeichnis

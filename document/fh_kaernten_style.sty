@@ -137,19 +137,43 @@ overfullrule=false,
 }
 {\endtabularx\\[\belowdisplayskip]}
 
-
-
-% Normenverzeichnisumgebung
-\renewenvironment{normen}{%
-	\footnotesize
-	\begin{flushleft}
-		\begin{tabular}{lp{\dimexpr \textwidth-\eqboxwidth{norm}-3em}}
+% Abkürzungen
+\renewcommand{\abkuerzungsverzeichnis}{%
+\section*{Abkürzungsverzeichnis}
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Abkürzungsverzeichnis}}
+\DTLsetseparator{;}
+\DTLloaddb[noheader,keys={Sortierung,Kuerzel,Beschreibung}]{abkuerzungen}{abkuerzungen.csv}
+\DTLsort*{Sortierung}{abkuerzungen}
+\noindent\footnotesize \setlength{\extrarowheight}{1ex}
+\begin{tabular}{lp{\dimexpr \textwidth-\eqboxwidth{abkuerzung}-3em}}
+	\DTLforeach{abkuerzungen}{%
+		\Kuerzel=Kuerzel,\Beschreibung=Beschreibung}{%
+		\eqmakebox[abkuerzung][l]{\Kuerzel} & \Beschreibung \\
 	}
-	{ 
-	\end{tabular}
-	\end{flushleft}}
-\renewcommand{\norm}[3]{%
-\addlinespace[1ex]\eqmakebox[norm][l]{[#1]} & #2 \newline Ausgabe: #3 \\}
+	\\
+\end{tabular}
+\clearpage
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}}
+
+% Normenverzeichnis
+\renewcommand{\normenverzeichnis}{%
+\section*{Normenverzeichnis}
+\addcontentsline{toc}{section}{Normenverzeichnis}
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Normenverzeichnis}}
+\DTLsetseparator{;}
+\DTLloaddb[noheader,keys={Norm,Beschreibung,Ausgabe}]{normen}{normen.csv}
+\DTLsort*{Norm}{normen}
+\noindent\footnotesize \setlength{\extrarowheight}{1ex}
+\begin{tabular}{lp{\dimexpr \textwidth-\eqboxwidth{norm}-3em}}
+	\DTLforeach{normen}{%
+		\Norm=Norm,\Beschreibung=Beschreibung,\Ausgabe=Ausgabe}{%
+		\eqmakebox[norm][l]{[\Norm]} & \Beschreibung \newline Ausgabe: \Ausgabe \\
+	}
+	\\
+\end{tabular}
+\clearpage
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}}
+
 
 
 \renewcommand{\literaturverzeichnis}{% Literaturverzeichnis

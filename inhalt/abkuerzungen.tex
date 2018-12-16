@@ -1,20 +1,22 @@
-%{\large Abkürzungsverzeichnis}\\
-
-\section*{Abkürzungsverzeichnis}
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Abkürzungsverzeichnis}}
-{\small \begin{tabular}[t]{ll}
-	$\coloneqq$ & \textit{definiert als}, bei Neudefinitionen mit ursprünglichem Wert in der Gleichung\\
-	$P_{i}$ & bekannter Punkt auf der Trajektorie, gewählt (Startpunkt) oder ermittelt (Iteration)\\
-	$P_{i+1}$ & nächster, zu ermittelnder Punkt der Trajektorie\\
-	$\varphi$ & Winkel zwischen der x-Achse und der Geraden $\overline{P_{i}P_{i+1}}$\\
-	$\varphi_{i}$ & Hauptspannungswinkel am Punkt $P_{i}$ \\
-	$\varphi_{i+1}$ & Hauptspannungswinkel am Punkt $P_{i+1}$ \\
-	$r$ & Iterationsschritt, Abstand der Punkte $P_{i}$ und $P_{i+1}$\\
-	$S$ & Schnittpunkt der Verlängerung der Hauptspannungswinkel $\varphi_{i}$ und $\varphi_{i+1}$\\
-	$g_{i}$ & Gerade zwischen Punkt $P_{i}$ und dem Schnittpunkt $S$ \\
-	$g_{i+1}$ & Gerade zwischen Punkt $P_{i+1}$ und dem Schnittpunkt $S$ \\
-	$l_{i}$ & Länge der Geraden $g_{i}$\\
-	$l_{i+1}$ & Länge der Geraden $g_{i+1}$\\
-\end{tabular}}
-\clearpage
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}
+%TODO Eintragung der Abkürzungen. Die Liste wird automatisch Aphabetisch nach der Sortierung sortiert. Trenner ist das Semikolon ";". Benötigt zweifache Kompilierung Die Sortierung wird benötigt, um mathematische Symbole zu interpretieren.
+\begin{filecontents*}{abkuerzungen.csv}
+	%Sortierung ; Kuerzel ; Beschreibung 
+	0 ; $\coloneqq$ ; \textit{definiert als}, bei Neudefinitionen mit ursprünglichem Wert in der Gleichung
+	P ; $P_{i}$ ; bekannter Punkt auf der Trajektorie, gewählt (Startpunkt) oder ermittelt (Iteration)
+	P ; $P_{i+1}$ ; nächster, zu ermittelnder Punkt der Trajektorie
+	Phi ; $\varphi$ ; Winkel zwischen der x-Achse und der Geraden $\overline{P_{i}P_{i+1}}$
+	Phii ; $\varphi_{i}$ ; Hauptspannungswinkel am Punkt $P_{i}$ 
+	Phii+1 ; $\varphi_{i+1}$ ; Hauptspannungswinkel am Punkt $P_{i+1}$ 
+	r ; $r$ ; Iterationsschritt, Abstand der Punkte $P_{i}$ und $P_{i+1}$
+	S ; $S$ ; Schnittpunkt der Verlängerung der Hauptspannungswinkel $\varphi_{i}$ und $\varphi_{i+1}$
+	gi ; $g_{i}$ ; Gerade zwischen Punkt $P_{i}$ und dem Schnittpunkt $S$
+	AEk ; $A_{Ek}$ ; Charakteristischer Wert einer Einwirkung infolge Erdbeben
+	gi+1 ; $g_{i+1}$ ; Gerade zwischen Punkt $P_{i+1}$ und dem Schnittpunkt $S$ 
+	li ; $l_{i}$ ; Länge der Geraden $g_{i}$
+	li+1 ; $l_{i+1}$ ; Länge der Geraden $g_{i+1}$
+	A ;$A$; Außergewöhnliche Einwirkung
+	Ad;$A_{d}$;Bemessungswert einer außergewöhnlichen Einwirkung
+	AEd ; $A_{Ed}$ ; Bemessungswert einer Einwirkung infolge Erdbeben $A_{Ed} = y_{I}A_{Ek}$	
+\end{filecontents*}
+%***********************************************************
+\abkuerzungsverzeichnis

@@ -1,15 +1,11 @@
-%{\large Abkürzungsverzeichnis}\\
-
-\section*{Normenverzeichnis}
-\addcontentsline{toc}{section}{Normenverzeichnis}
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Normenverzeichnis}}
-\begin{normen}
-	\norm{ONR 23303}{ON-Regel, Prüfverfahren Beton (PVB), Nationale Anwendung
-		der Prüfnormen für Beton und seiner Ausgangsstoffe.}{2010-09}
-	\norm{ÖNORM B 4710-1-66-9}{Beton Teil 1: Festlegung, Herstellung, Verwendung und Konformitätsnachweis (Regeln zur Umsetzung der ÖNORM EN 206-1 für Normal- und Schwerbeton).}{2007-10}	
-	\norm{ÖNORM EN 12390-2}{Prüfung von Festbeton, Teil 2. Herstellung und Lagerung von Probekörpern für Festigkeitsprüfungen.}{2009-07}
-	\norm{DIN EN 1993-1-1}{Eurocode 3: Bemessung und Konstruktion von Stahlbauten -  Teil 1-1: Allgemeine Bemessungsregeln und Regeln für den Hochbau}{2010-12}
-	\norm{ACI 318-14}{Building Code Requirements for Structural Concrete}{2014-02}
-\end{normen}
-\clearpage
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}
+%TODO Eintragung der Normen. Die Liste wird automatisch Aphabetisch nach Norm sortiert. Trenner ist das Semikolon ";". Benötigt zweifache Kompilierung
+\begin{filecontents*}{normen.csv}
+	%Norm ; Beschreibung ; Ausgabe
+	ONR 23303; ON-Regel, Prüfverfahren Beton (PVB), Nationale Anwendung der Prüfnormen für Beton und seiner Ausgangsstoffe.; 2007-10
+	ÖNORM B 4710-1-66-9;Beton Teil 1: Festlegung, Herstellung, Verwendung und Konformitätsnachweis (Regeln zur Umsetzung der ÖNORM EN 206-1 für Normal- und Schwerbeton).;2007-10	
+	ÖNORM EN 12390-2;Prüfung von Festbeton, Teil 2. Herstellung und Lagerung von Probekörpern für Festigkeitsprüfungen.;2009-07
+	DIN EN 1993-1-1;Eurocode 3: Bemessung und Konstruktion von Stahlbauten -  Teil 1-1: Allgemeine Bemessungsregeln und Regeln für den Hochbau;2010-12
+	ACI 318-14;Building Code Requirements for Structural Concrete;2014-02
+\end{filecontents*}
+%***********************************************************
+\normenverzeichnis
