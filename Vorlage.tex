@@ -39,7 +39,9 @@
 \input{inhalt/danksagung}
 \input{inhalt/kurzfassung}
 %***********************************************************
-
+% TODO: Anpassung der längsten Inhaltsnummerierung für Abstand
+\settowidth{\tocindent}{0.0.0}% Berechnung Breite der Nummerierung
+%***********************************************************
 \inhaltsverzeichnis
 
 % TODO: Erstellung von Text in Untergeordneten Dateine (am besten Kapitelweise)
@@ -57,10 +59,14 @@
 \abbildungsverzeichnis% Abbildungsverzeichnis
 \tabellenverzeichnis% Tabellenverzeichnis
 \literaturverzeichnis% Literaturverzeichnis
+\input{inhalt/normenverzeichnis}
 \label{lastpage}% letzte Seite des Inhalts
 \anhangtrenner% Trennseite für Anhang
 \anhangverzeichnis% Anhangverzeichnis
 
+% TODO: Anpassung der längsten Inhaltsnummerierung für Abstand
+\settowidth{\tocindent}{A.00}% Berechnung Breite der Nummerierung
+%***********************************************************
 % TODO: Erstellen von Anhangkapiteln
 \input{inhalt/anhang}
 %***********************************************************
