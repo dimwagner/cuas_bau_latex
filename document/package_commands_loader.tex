@@ -37,7 +37,7 @@ format=hang,
 labelsep=space, 
 labelsep=colon]{caption}% Anpassung der Unterschriften (Bilder/Tabellen)
 \usepackage{soul}% Hervorhebung von Text
-\usepackage{chemformula}% Für die chemische Formel
+\usepackage[version=4]{mhchem}% Für die chemische Formel
 \usepackage[onehalfspacing]{setspace}% Anderthalber Zeilenabstand  
 
 
@@ -55,10 +55,13 @@ labelsep=colon]{caption}% Anpassung der Unterschriften (Bilder/Tabellen)
 	external,
 	intersections,
 	through,
-	decorations.pathmorphing,
-	arrows,
+	decorations.pathmorphing,				% Liniendekoration
+	arrows.meta,							% Pfeile
 }
 \pgfplotsset{compat=1.15}
+
+\mhchemoptions{arrows=pgf-filled}% Schönere Pfeile für chemische Formeln
+
 
 % Custom-Commands
 \newlength{\tocindent}

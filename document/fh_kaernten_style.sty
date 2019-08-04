@@ -6,22 +6,43 @@
 
 % Dokumentoptionen
 \KOMAoptions{% 
-headheight=30pt, 
-footheight=30pt, 
-headsepline, 
-footsepline,
-twoside=false, 
-parskip, 
-%overfullrule=false, 
+	headheight=30pt, 
+	footheight=30pt, 
+	headsepline, 
+	footsepline,
+	parskip, 
+	%overfullrule=false,
 }
 
-% Optionen
-\geometry{% Einstellungen Papiergröße
-	a4paper,
-	tmargin=30mm,
-	bmargin=40mm,
-	lmargin=25mm,
-	rmargin=20mm}
+%Optionen für oneside/twoside
+\makeatletter
+\if@twoside%
+	\geometry{% Einstellungen Papiergröße
+		a4paper,
+		tmargin=30mm,
+		bmargin=40mm,
+		lmargin=25mm,
+		rmargin=20mm,
+		bindingoffset=10mm
+	}
+	\newcommand{\footline}{%
+		\ofoot[\pagemark]{\pagemark}
+	}
+\else%
+	\geometry{% Einstellungen Papiergröße
+		a4paper,
+		tmargin=30mm,
+		bmargin=40mm,
+		lmargin=25mm,
+		rmargin=20mm
+	}
+	\newcommand{\footline}{%
+		\ifoot[\Student]{\Student}
+		\ofoot[\pagemark]{\pagemark}
+	}
+\fi%  
+\makeatother
+\automark[subsection]{section}
 
 % Schriftart/größen
 \setmainfont{Verdana}% Schriftart Verdana
@@ -59,24 +80,21 @@ parskip,
 
 %Inhaltsverzeichnis einbinden
 \renewcommand{\inhaltsverzeichnis}{%
-\startcontents[sections]
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Inhaltsverzeichnis}}
-\section*{Inhaltsverzeichnis}
-\begin{singlespace}
+	\startcontents[sections]
+	\ohead[]{Inhaltsverzeichnis}
+	\section*{Inhaltsverzeichnis}
 	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
-\end{singlespace}
-
-\clearpage
-\pagenumbering{arabic}
-\automark[subsection]{section}
-\clearscrheadings% Bereinigung Kopfzeile
-\renewcommand*{\sectionmarkformat}{}% Subsection ohne Nummer
-\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
-\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \headmark }}}
+	\cleardoublepage
+	\pagenumbering{arabic}
+	\automark[subsection]{section}
+	\clearscrheadings% Bereinigung Kopfzeile
+	\renewcommand*{\sectionmarkformat}{}% Subsection ohne Nummer
+	\footline
+	\ohead[]{\headmark}
+}
 
 \renewcommand{\anhangtrenner}{% Anhang
-	\clearpage
+	\cleardoublepage
 	\KOMAoptions{headsepline=false}% Trennlinie Kopfzeile - Aus
 	\KOMAoptions{footsepline=false}% Trennlinie Fußzeile - Aus
 	\clearscrheadfoot
@@ -87,7 +105,7 @@ parskip,
 		\makebox[8cm][c]{\spaceout{ANHANG}} \\
 	\end{center}
 	\vfill\null
-	\clearpage
+	\cleardoublepage
 	\phantomsection
 	\addcontentsline{toc}{section}{Anhang}
 	\KOMAoptions{headsepline=true}% Trennlinie Kopfzeile - An
@@ -96,41 +114,38 @@ parskip,
 	\startcontents[sections]
 	\renewcommand{\thepage}{A\arabic{page}}
 	\setcounter{page}{1}
-	\ohead[Anhang]{\parbox[t][5mm]{\textwidth}{\raggedleft Anhang --- Anhangsverzeichnis}}
-	\ifoot[\Student]{\parbox[b][5mm]{5cm}{\Student}}
-	\ofoot[\pagemark]{\parbox[b][5mm]{5cm}{\raggedleft \pagemark}}}
+	\ohead[Anhang]{Anhangsverzeichnis}
+	\footline
+}
 
 	
 % Abbildungsverzeichnis einbinden	
 \renewcommand{\abbildungsverzeichnis}{% 
-\clearpage
-\phantomsection
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
-\listoffigures
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+	\listoffigures
 }
 
 % Tbellenverzeichnis einbinden
 \renewcommand{\tabellenverzeichnis}{%
-\clearpage
-\phantomsection
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
-\listoftables
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{section}{Tabellenverzeichnis}
+	\listoftables
 }
 
 % Anhangsverzeichnis einbinden
 \renewcommand{\anhangverzeichnis}{%
-\section*{Anhangsverzeichnis}
-\begin{singlespace}
-	\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
-\end{singlespace}
-\clearpage
-\ohead[Anhang]{\parbox[t][5mm]{\textwidth}{\raggedleft Anhang --- \headmark}}}
-
-
+	\section*{Anhangsverzeichnis}
+		\printcontents[sections]{l}{1}{\setcounter{tocdepth}{3}}
+	\cleardoublepage
+	\ohead[Anhang]{\headmark}
+}
 
 % Formelbeschreibungen
 \newlength{\conditionwd}
-\renewenvironment{conditions}[1][mit:]{% Beschreibung für Formeln
+\renewenvironment{conditions}[1][mit:\hspace{1cm}]{% Beschreibung für Formeln
 	#1\tabularx{\textwidth-\widthof{#1}}[t]{
 		>{$}l<{$} @{${}\coloneqq{}$} X@{}
 	}%
@@ -139,52 +154,52 @@ parskip,
 
 % Abkürzungen
 \renewcommand{\abkuerzungsverzeichnis}{%
-\section*{Abkürzungsverzeichnis}%
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Abkürzungsverzeichnis}}%
-\DTLsetseparator{;}%
-\DTLloaddb[noheader,keys={Sortierung,Kuerzel,Beschreibung}]{abkuerzungen}{abkuerzungen.csv}%
-\DTLsort*{Sortierung}{abkuerzungen}%
-\noindent\footnotesize \setlength{\extrarowheight}{1ex}%
-\vspace{-8.673mm}\begin{longtable}{lp{\dimexpr \textwidth-\eqboxwidth{abkuerzung}-3em}}
-	\DTLforeach{abkuerzungen}{%
-		\Kuerzel=Kuerzel,\Beschreibung=Beschreibung}{%
-		\hspace{-3.163 mm}\eqmakebox[abkuerzung][l]{\Kuerzel} & \Beschreibung \\
-	}\\
-\end{longtable}
-\clearpage\relax\normalsize
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}}
+	\section*{Abkürzungsverzeichnis}%
+	\ohead[Abkürzungsverzeichnis]{Abkürzungsverzeichnis}%
+	\DTLsetseparator{;}%
+	\DTLloaddb[noheader,keys={Sortierung,Kuerzel,Beschreibung}]{abkuerzungen}{abkuerzungen.csv}%
+	\DTLsort*{Sortierung}{abkuerzungen}%
+	\noindent\footnotesize \setlength{\extrarowheight}{1ex}%
+	\vspace{-8.673mm}\begin{longtable}{lp{\dimexpr \textwidth-\eqboxwidth{abkuerzung}-3em}}
+		\DTLforeach{abkuerzungen}{%
+			\Kuerzel=Kuerzel,\Beschreibung=Beschreibung}{%
+			\hspace{-3.163 mm}\eqmakebox[abkuerzung][l]{\Kuerzel} & \Beschreibung \\
+		}\\
+	\end{longtable}
+	\cleardoublepage\relax\normalsize
+	\ohead[]{\rightmark}
+}
 
 % Normenverzeichnis
 \renewcommand{\normenverzeichnis}{%
-\section*{Normenverzeichnis}%
-\addcontentsline{toc}{section}{Normenverzeichnis}%
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Normenverzeichnis}}%
-\DTLsetseparator{;}%
-\DTLloaddb[noheader,keys={Norm,Beschreibung,Ausgabe}]{normen}{normen.csv}%
-\DTLsort*{Norm}{normen}%
-\noindent\footnotesize \setlength{\extrarowheight}{1ex}%
-\vspace{-8.673mm}\begin{longtable}{lp{\dimexpr \textwidth-\eqboxwidth{norm}-3em+3.163mm}}
-	\DTLforeach{normen}{%
-		\Norm=Norm,\Beschreibung=Beschreibung,\Ausgabe=Ausgabe}{%
-		\hspace{-3.163 mm}\eqmakebox[norm][l]{[\Norm]} & \Beschreibung \newline Ausgabe: \Ausgabe \\
-	}
-	\\
-\end{longtable}
-\clearpage\relax\normalsize
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}}
+	\section*{Normenverzeichnis}%
+	\addcontentsline{toc}{section}{Normenverzeichnis}%
+	\ohead[]{Normenverzeichnis}%
+	\DTLsetseparator{;}%
+	\DTLloaddb[noheader,keys={Norm,Beschreibung,Ausgabe}]{normen}{normen.csv}%
+	\DTLsort*{Norm}{normen}%
+	\noindent\footnotesize \setlength{\extrarowheight}{1ex}%
+	\vspace{-8.673mm}\begin{longtable}{lp{\dimexpr \textwidth-\eqboxwidth{norm}-3em+3.163mm}}
+		\DTLforeach{normen}{%
+			\Norm=Norm,\Beschreibung=Beschreibung,\Ausgabe=Ausgabe}{%
+			\hspace{-3.163 mm}\eqmakebox[norm][l]{[\Norm]} & \Beschreibung \newline Ausgabe: \Ausgabe \\
+		}
+		\\
+	\end{longtable}
+	\cleardoublepage\relax\normalsize
+	\ohead[]{\rightmark}
+}
 
 \renewcommand{\literaturverzeichnis}{% Literaturverzeichnis
-\clearpage
-%\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Literaturverzeichnis}}
-\phantomsection
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\label{sec:Literatur}
-\renewcommand*{\bibfont}{\footnotesize}
-\nocite{*}
-\printbibliography[title=Literaturverzeichnis]
-\clearpage}
-
-
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{section}{Literaturverzeichnis}
+	\label{sec:Literatur}
+	\renewcommand*{\bibfont}{\footnotesize}
+	\nocite{*}
+	\printbibliography[title=Literaturverzeichnis]
+	\cleardoublepage
+}
 
 % Einstellung der Verzeichnisse (Inhalt und Anhang)
 \titlecontents{section}[\dimexpr \tocindent+0.5em]{}

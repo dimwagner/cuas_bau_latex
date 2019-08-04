@@ -14,4 +14,28 @@ Diese Eintragung mit \texttt{\textbackslash addcontentsline\{toc\}\{section\}\{E
 \addcontentsline{toc}{section}{Ein Kapitel ohne Nummerierung}
 
 Der hier verwendete Code \texttt{\textbackslash section\textbf{*}\{Titel\}} ist analog auch für \texttt{subsection} und \texttt{subsubsection} anwendbar
-\clearpage
+
+\subsection{Twoside und Oneside}
+\label{sec:twooneside}
+Es gibt für das Dokument die Option "`Twoside"', welche die links-rechts Ausrichtung von Seiten berücksichtigt. Dies führt unter anderem dazu, dass die Seitenzahlen bei Twoside immer am äußeren Rand stehen und der Name des Autors nicht angezeigt wird. Außerdem beginnt ein Kapitel stets auf der rechten Seite. auch bei den Kapitelbeschriftungen ändert sich etwas. Steht bei Oneside jeweils nur das Kapitel der ersten Ebene in der Kopfzeile, so ist es bei Twoside zum einen das Kapitel der ersten Ebene auf der linken, sowie das Kapitel der zweiten Ebene auf der Rechten Seite der Kopfzeile.
+
+Zusätzlich fügt die Option Twoside noch einen zusätzlichen Bindeabstand ein, damit Teile des Textes nicht verschwinden.
+
+Die Option ist in der Vorlage einzustellen:
+\texttt{\textbackslash documentclass[10pt,twoside=\textbf{true}]\{scrartcl\}}
+Hier ist entsprechend der Präferenz die Option true oder false einzutragen.
+
+Die nachfolgenden "`sinnlos"'-Kapitel sollen die Funktionsweise ein wenig verdeutlichen und anschaulicher machen. Dass in manchen Fällen in der Kopfzeile einmal nichts steht ist dem geschuldet dass das Kapitel ja hier neu anfängt. Leere Seiten erscheinen dann, wenn der letzte Satz eines Kapitels auf der rechten Seite steht. Ist das Dokument sehr kurz macht die Twoside-Option wenig Sinn. bei längeren Dokumenten ist dies wieder anders.
+
+Für eine Entsprechende Ansicht sollte im Adobe Reader die Option Deckblatt in Zweiseitenansicht einblenden aktiviert sein. Dann ist die Darstellung im Reader auch korrekt.
+ 
+\subsection{Wirres Unter-Kapitel}
+\lipsum
+\subsubsection{Ein wirres Unter-Unter-Kapitel}
+\lipsum
+\subsubsection{Ein weiteres wirres Unter-Unter-Kapitel}
+\lipsum
+\subsection{Wirres Unter-Kapitel --- Neustart}
+\subsubsection{Jetzt wird es noch verworrener}
+\lipsum
+\cleardoublepage
