@@ -139,41 +139,39 @@ parskip,
 
 % Abkürzungen
 \renewcommand{\abkuerzungsverzeichnis}{%
-\section*{Abkürzungsverzeichnis}
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Abkürzungsverzeichnis}}
-\DTLsetseparator{;}
-\DTLloaddb[noheader,keys={Sortierung,Kuerzel,Beschreibung}]{abkuerzungen}{abkuerzungen.csv}
-\DTLsort*{Sortierung}{abkuerzungen}
-\noindent\footnotesize \setlength{\extrarowheight}{1ex}
-\begin{tabular}{lp{\dimexpr \textwidth-\eqboxwidth{abkuerzung}-3em}}
+\section*{Abkürzungsverzeichnis}%
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Abkürzungsverzeichnis}}%
+\DTLsetseparator{;}%
+\DTLloaddb[noheader,keys={Sortierung,Kuerzel,Beschreibung}]{abkuerzungen}{abkuerzungen.csv}%
+\DTLsort*{Sortierung}{abkuerzungen}%
+\noindent\footnotesize \setlength{\extrarowheight}{1ex}%
+\vspace{-8.673mm}\begin{longtable}{lp{\dimexpr \textwidth-\eqboxwidth{abkuerzung}-3em}}
 	\DTLforeach{abkuerzungen}{%
 		\Kuerzel=Kuerzel,\Beschreibung=Beschreibung}{%
-		\eqmakebox[abkuerzung][l]{\Kuerzel} & \Beschreibung \\
+		\hspace{-3.163 mm}\eqmakebox[abkuerzung][l]{\Kuerzel} & \Beschreibung \\
 	}\\
-\end{tabular}
-\clearpage
+\end{longtable}
+\clearpage\relax\normalsize
 \ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}}
 
 % Normenverzeichnis
 \renewcommand{\normenverzeichnis}{%
-\section*{Normenverzeichnis}
-\addcontentsline{toc}{section}{Normenverzeichnis}
-\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Normenverzeichnis}}
-\DTLsetseparator{;}
-\DTLloaddb[noheader,keys={Norm,Beschreibung,Ausgabe}]{normen}{normen.csv}
-\DTLsort*{Norm}{normen}
-\noindent\footnotesize \setlength{\extrarowheight}{1ex}
-\begin{tabular}{lp{\dimexpr \textwidth-\eqboxwidth{norm}-3em}}
+\section*{Normenverzeichnis}%
+\addcontentsline{toc}{section}{Normenverzeichnis}%
+\ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft Normenverzeichnis}}%
+\DTLsetseparator{;}%
+\DTLloaddb[noheader,keys={Norm,Beschreibung,Ausgabe}]{normen}{normen.csv}%
+\DTLsort*{Norm}{normen}%
+\noindent\footnotesize \setlength{\extrarowheight}{1ex}%
+\vspace{-8.673mm}\begin{longtable}{lp{\dimexpr \textwidth-\eqboxwidth{norm}-3em+3.163mm}}
 	\DTLforeach{normen}{%
 		\Norm=Norm,\Beschreibung=Beschreibung,\Ausgabe=Ausgabe}{%
-		\eqmakebox[norm][l]{[\Norm]} & \Beschreibung \newline Ausgabe: \Ausgabe \\
+		\hspace{-3.163 mm}\eqmakebox[norm][l]{[\Norm]} & \Beschreibung \newline Ausgabe: \Ausgabe \\
 	}
 	\\
-\end{tabular}
-\clearpage
+\end{longtable}
+\clearpage\relax\normalsize
 \ohead[]{\parbox[t][5mm]{\textwidth}{\raggedleft \rightmark}}}
-
-
 
 \renewcommand{\literaturverzeichnis}{% Literaturverzeichnis
 \clearpage
