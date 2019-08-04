@@ -1,11 +1,11 @@
-
+*.gitignore
 *.log
 *.aux
 *.bcf
 *.lof
 *.lot
 *.out
-*.pdf
+*.original
 *.ptc
 *.xml
 *.gz
