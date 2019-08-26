@@ -222,5 +222,21 @@
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
+% Fußnoten-Anpassung
+\makeatletter%
+\renewcommand{\@makefntext}[1]{%
+  \setlength{\parindent}{0pt}%
+  \begin{list}{}{\setlength{\labelwidth}{6mm}% 1.5em
+    \setlength{\leftmargin}{\labelwidth}%
+    \setlength{\labelsep}{1pt}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}%
+    \setlength{\topsep}{0pt}%
+    \footnotesize}%
+  \item[\textsuperscript{\@thefnmark}\hfil]#1% @makefnmark
+  \end{list}%
+}
+\makeatother%
+
 % Finally, we'll use \endinput to indicate that LaTeX can stop reading this file. LaTeX will ignore anything after this line.
 \endinput
